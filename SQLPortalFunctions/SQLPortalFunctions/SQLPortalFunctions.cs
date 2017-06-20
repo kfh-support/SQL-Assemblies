@@ -92,26 +92,37 @@ public partial class Functions
     // the handler for xml validation events
     static void ValidationEventHandler(object sender, System.Xml.Schema.ValidationEventArgs e)
     {
-        string ex = null;
+        string errorMsg = string.Empty;
         if (e.Exception.GetType() == typeof(XmlSchemaValidationException))
         {
             XmlSchemaValidationException inex = (XmlSchemaValidationException)e.Exception;
             XmlElement el = (XmlElement)inex.SourceObject;
-            if (e.Message.Contains("duplicate key sequence") && ((XmlDocument2)el.OwnerDocument).UniqueNodeValues == false) { return; }
+            if (e.Message.Contains("duplicate key sequence") && ((XmlDocument2)el.OwnerDocument).UniqueNodeValues == false) 
+            {   
+                return; 
+            }
+            
+            // Check if we have any existing validation errors
+            ArrayList existingErrors = ((XmlDocument2)el.OwnerDocument).ValidationErrors;      
             switch (e.Severity)
             {
                 case System.Xml.Schema.XmlSeverityType.Error:
-                    {
-                        ex = String.Format("XML Schema validation - {0}: {1}", e.Severity, e.Message);
-                        ((XmlDocument2)el.OwnerDocument).ValidationErrors.Add(new PostResult(null, null, false, true, ex, STATUS_CODES.XML_INVALID_AGAINST_SCHEMA, null));
-                        break;
-                    }
                 case System.Xml.Schema.XmlSeverityType.Warning:
+                {
+                    if (existingErrors.Count > 0)
                     {
-                        ex = String.Format("XML Schema validation - {0}: {1}", e.Severity, e.Message);
-                        ((XmlDocument2)el.OwnerDocument).ValidationErrors.Add(new PostResult(null, null, false, true, ex, STATUS_CODES.XML_INVALID_AGAINST_SCHEMA, null));
-                        break;
+                        PostResult existingResult = (PostResult)existingErrors[0];
+                        existingResult.AdditionalInfo = String.Format("{0}\r\n{1}", existingResult.AdditionalInfo, e.Message);
+                        ((XmlDocument2)el.OwnerDocument).ValidationErrors.RemoveAt(0);
+                        ((XmlDocument2)el.OwnerDocument).ValidationErrors.Add(existingResult);
                     }
+                    else
+                    {
+                        errorMsg = String.Format("XML Schema validation error(s):\r\n{0}", e.Message);
+                        ((XmlDocument2)el.OwnerDocument).ValidationErrors.Add(new PostResult(null, null, false, true, errorMsg, STATUS_CODES.XML_INVALID_AGAINST_SCHEMA, null));
+                    }
+                    break;
+                }
             }
         }
         else
