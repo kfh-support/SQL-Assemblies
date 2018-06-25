@@ -1,0 +1,25 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishUrlHistory>
+    </PublishUrlHistory>
+    <InstallUrlHistory>
+    </InstallUrlHistory>
+    <SupportUrlHistory>
+    </SupportUrlHistory>
+    <UpdateUrlHistory>
+    </UpdateUrlHistory>
+    <BootstrapperUrlHistory>
+    </BootstrapperUrlHistory>
+    <ErrorReportUrlHistory>
+    </ErrorReportUrlHistory>
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{c252feb5-a946-4202-b1d4-9916a0590387}">
+        <DatabaseConnection Name="Data Source=DCSQL01;Initial Catalog=Development;User ID=sa" Provider="{91510608-8809-4020-8897-FBA057E22D54}" ConnectionString="01000000D08C9DDF0115D1118C7A00C04FC297EB010000009A8B3755ADC1FB41BB348031D2E5DD060000000002000000000003660000C000000010000000135A287D92FC0E7CAC5DE62BE80057B60000000004800000A000000010000000C5364D42517C988E4E0BD6783D80BA10780000009E0F06BC44405CE76C7227B06D6FFCFD67901391E60B8D4C45463D9AD0D2ACD37B32DB4C5789286A99998EBFE6E2D7D6230AC067F1AF2A6FDE905BD662A1752A18800E994C02A6A5BE60F400C0B170330A99C7A069C7FD40B530947AFA6EF21756F10D7B6E1BF83E5645EE2F4AC61B1C7B42594FB2086B851400000003573B76599C11E32A2F57BF07E0F6EA44A23FDA" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
