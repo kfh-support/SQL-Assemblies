@@ -1,0 +1,14 @@
+C:\GitHub\SQL-Assemblies\SQLPortalFunctions\SQLPortalFunctions\bin\Release\SQLPortalFunctions.dacpac
+C:\GitHub\SQL-Assemblies\SQLPortalFunctions\SQLPortalFunctions\bin\Release\SQLPortalFunctions.dll
+C:\GitHub\SQL-Assemblies\SQLPortalFunctions\SQLPortalFunctions\obj\Release\Model.xml
+C:\GitHub\SQL-Assemblies\SQLPortalFunctions\SQLPortalFunctions\obj\Release\refactor.xml
+C:\GitHub\SQL-Assemblies\SQLPortalFunctions\SQLPortalFunctions\obj\Release\postdeploy.sql
+C:\GitHub\SQL-Assemblies\SQLPortalFunctions\SQLPortalFunctions\obj\Release\predeploy.sql
+C:\GitHub\SQL-Assemblies\SQLPortalFunctions\SQLPortalFunctions\obj\Release\SQLPortalFunctions.dll
+C:\GitHub\SQL-Assemblies\SQLPortalFunctionsKFH\SQLPortalFunctions\bin\Release\SQLPortalFunctions.dacpac
+C:\GitHub\SQL-Assemblies\SQLPortalFunctionsKFH\SQLPortalFunctions\bin\Release\SQLPortalFunctions.dll
+C:\GitHub\SQL-Assemblies\SQLPortalFunctionsKFH\SQLPortalFunctions\obj\Release\Model.xml
+C:\GitHub\SQL-Assemblies\SQLPortalFunctionsKFH\SQLPortalFunctions\obj\Release\refactor.xml
+C:\GitHub\SQL-Assemblies\SQLPortalFunctionsKFH\SQLPortalFunctions\obj\Release\postdeploy.sql
+C:\GitHub\SQL-Assemblies\SQLPortalFunctionsKFH\SQLPortalFunctions\obj\Release\predeploy.sql
+C:\GitHub\SQL-Assemblies\SQLPortalFunctionsKFH\SQLPortalFunctions\obj\Release\SQLPortalFunctions.dll

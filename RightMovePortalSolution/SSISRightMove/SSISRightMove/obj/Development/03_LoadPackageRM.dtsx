@@ -1,0 +1,1248 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/1/2018 10:43:55 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="KFH2927"
+  DTS:CreatorName="HO\vhanbury"
+  DTS:DTSID="{E6C6F26A-E8FC-4C17-A33B-643F963B5148}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2164.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="03_LoadPackageRM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{453D503F-B2C9-474F-926E-B9004E7ECDB8}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DC_LNCMLDB\CML.OpenHousePortals]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5F794A81-2E5A-4117-B1A0-272539036BED}"
+      DTS:ObjectName="DC_LNCMLDB\CML.OpenHousePortals">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DC_LNCMLDB\CML;Initial Catalog=OpenHousePortals;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Property Updates"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{cb32856a-4c41-421e-b0ad-94e25770ce78}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Property Updates">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Load Property Updates\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{fee07f19-c133-48cb-9fb2-c1abd2153a67}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Load Property Updates\Data Flow Task\Property Staging"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Property Staging"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[PropertyStaging]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load Property Updates\Data Flow Task\Property Staging.Connections[OleDbConnection]"
+                      connectionManagerID="{E0BBAD3C-D8D6-4049-A79A-28A6BD265C89}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[DCSQL01OpenHousePortals]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].Columns[WebPortalID]"
+                          cachedDataType="i4"
+                          cachedName="WebPortalID"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[WebPortalID]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[WebPortalID]" />
+                        <inputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].Columns[PropertyReference]"
+                          cachedDataType="i4"
+                          cachedName="PropertyReference"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[PropertyReference]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[PropertyReference]" />
+                        <inputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="UpdateDate"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
+                        <inputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].Columns[InsertionDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="InsertionDate"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[InsertionDate]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[InsertionDate]" />
+                        <inputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].Columns[DeletionDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DeletionDate"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[DeletionDate]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[DeletionDate]" />
+                        <inputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].Columns[Success]"
+                          cachedDataType="bool"
+                          cachedName="Success"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[Success]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[Success]" />
+                        <inputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].Columns[LastPostXML]"
+                          cachedDataType="nText"
+                          cachedName="LastPostXML"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[LastPostXML]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[LastPostXML]" />
+                        <inputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].Columns[ResponseXML]"
+                          cachedDataType="nText"
+                          cachedName="ResponseXML"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[ResponseXML]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[ResponseXML]" />
+                        <inputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].Columns[ErrorMessage]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1000"
+                          cachedName="ErrorMessage"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[ErrorMessage]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[ErrorMessage]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[WebPortalID]"
+                          dataType="i4"
+                          name="WebPortalID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[PropertyReference]"
+                          dataType="i4"
+                          name="PropertyReference" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                          dataType="dbTimeStamp"
+                          name="UpdateDate" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[InsertionDate]"
+                          dataType="dbTimeStamp"
+                          name="InsertionDate" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[DeletionDate]"
+                          dataType="dbTimeStamp"
+                          name="DeletionDate" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[Success]"
+                          dataType="bool"
+                          name="Success" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[LastPostXML]"
+                          dataType="nText"
+                          name="LastPostXML" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[ResponseXML]"
+                          dataType="nText"
+                          name="ResponseXML" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input].ExternalColumns[ErrorMessage]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="ErrorMessage" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load Property Updates\Data Flow Task\Property Staging.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load Property Updates\Data Flow Task\Property Staging.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\Property Staging.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load Property Updates\Data Flow Task\Property Staging.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load Property Updates\Data Flow Task\PropertyExtract"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PropertyExtract"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[propertyExtract]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DC_LNCMLDB\CML.OpenHousePortals]"
+                      connectionManagerRefId="Package.ConnectionManagers[DC_LNCMLDB\CML.OpenHousePortals]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[WebPortalID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[WebPortalID]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[WebPortalID]"
+                          name="WebPortalID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[PropertyReference]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[PropertyReference]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[PropertyReference]"
+                          name="PropertyReference"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                          name="UpdateDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[InsertionDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[InsertionDate]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[InsertionDate]"
+                          name="InsertionDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[DeletionDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[DeletionDate]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[DeletionDate]"
+                          name="DeletionDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[Success]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[Success]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[Success]"
+                          name="Success"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[LastPostXML]"
+                          dataType="nText"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[LastPostXML]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[LastPostXML]"
+                          name="LastPostXML"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[ResponseXML]"
+                          dataType="nText"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[ResponseXML]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[ResponseXML]"
+                          name="ResponseXML"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[ErrorMessage]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[ErrorMessage]"
+                          length="1000"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].Columns[ErrorMessage]"
+                          name="ErrorMessage"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[WebPortalID]"
+                          dataType="i4"
+                          name="WebPortalID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[PropertyReference]"
+                          dataType="i4"
+                          name="PropertyReference" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                          dataType="dbTimeStamp"
+                          name="UpdateDate" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[InsertionDate]"
+                          dataType="dbTimeStamp"
+                          name="InsertionDate" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[DeletionDate]"
+                          dataType="dbTimeStamp"
+                          name="DeletionDate" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[Success]"
+                          dataType="bool"
+                          name="Success" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[LastPostXML]"
+                          dataType="nText"
+                          name="LastPostXML" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[ResponseXML]"
+                          dataType="nText"
+                          name="ResponseXML" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output].ExternalColumns[ErrorMessage]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="ErrorMessage" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[WebPortalID]"
+                          dataType="i4"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[WebPortalID]"
+                          name="WebPortalID" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[PropertyReference]"
+                          dataType="i4"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[PropertyReference]"
+                          name="PropertyReference" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                          name="UpdateDate" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[InsertionDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[InsertionDate]"
+                          name="InsertionDate" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[DeletionDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[DeletionDate]"
+                          name="DeletionDate" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[Success]"
+                          dataType="bool"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[Success]"
+                          name="Success" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[LastPostXML]"
+                          dataType="nText"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[LastPostXML]"
+                          name="LastPostXML" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[ResponseXML]"
+                          dataType="nText"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[ResponseXML]"
+                          name="ResponseXML" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[ErrorMessage]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[ErrorMessage]"
+                          name="ErrorMessage" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PropertyIncludeExtract"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[PropertyIncludeExtract]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DC_LNCMLDB\CML.OpenHousePortals]"
+                      connectionManagerRefId="Package.ConnectionManagers[DC_LNCMLDB\CML.OpenHousePortals]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[WebPortalID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].ExternalColumns[WebPortalID]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[WebPortalID]"
+                          name="WebPortalID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[PropertyReference]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].ExternalColumns[PropertyReference]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[PropertyReference]"
+                          name="PropertyReference"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[PropertyIncludeNo]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].ExternalColumns[PropertyIncludeNo]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[PropertyIncludeNo]"
+                          name="PropertyIncludeNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[CreationDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].ExternalColumns[CreationDate]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[CreationDate]"
+                          name="CreationDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[IncludeDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].ExternalColumns[IncludeDate]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[IncludeDate]"
+                          name="IncludeDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[UpdateType]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].ExternalColumns[UpdateType]"
+                          length="1"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[UpdateType]"
+                          name="UpdateType"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[Processing]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].ExternalColumns[Processing]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[Processing]"
+                          name="Processing"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[XMLToPost]"
+                          dataType="nText"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].ExternalColumns[XMLToPost]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[XMLToPost]"
+                          name="XMLToPost"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].ExternalColumns[WebPortalID]"
+                          dataType="i4"
+                          name="WebPortalID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].ExternalColumns[PropertyReference]"
+                          dataType="i4"
+                          name="PropertyReference" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].ExternalColumns[PropertyIncludeNo]"
+                          dataType="i4"
+                          name="PropertyIncludeNo" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].ExternalColumns[CreationDate]"
+                          dataType="dbTimeStamp"
+                          name="CreationDate" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].ExternalColumns[IncludeDate]"
+                          dataType="dbTimeStamp"
+                          name="IncludeDate" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].ExternalColumns[UpdateType]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="UpdateType" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].ExternalColumns[Processing]"
+                          dataType="bool"
+                          name="Processing" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].ExternalColumns[XMLToPost]"
+                          dataType="nText"
+                          name="XMLToPost" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[PropertyIncludeNo]"
+                          dataType="i4"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[PropertyIncludeNo]"
+                          name="PropertyIncludeNo" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[WebPortalID]"
+                          dataType="i4"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[WebPortalID]"
+                          name="WebPortalID" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[PropertyReference]"
+                          dataType="i4"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[PropertyReference]"
+                          name="PropertyReference" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[CreationDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[CreationDate]"
+                          name="CreationDate" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[IncludeDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[IncludeDate]"
+                          name="IncludeDate" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[UpdateType]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[UpdateType]"
+                          name="UpdateType" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[Processing]"
+                          dataType="bool"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[Processing]"
+                          name="Processing" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[XMLToPost]"
+                          dataType="nText"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[XMLToPost]"
+                          name="XMLToPost" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="PropertyIncludeStaging"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[PropertyIncludeStaging]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Connections[OleDbConnection]"
+                      connectionManagerID="{E0BBAD3C-D8D6-4049-A79A-28A6BD265C89}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[DCSQL01OpenHousePortals]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].Columns[WebPortalID]"
+                          cachedDataType="i4"
+                          cachedName="WebPortalID"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].ExternalColumns[WebPortalID]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[WebPortalID]" />
+                        <inputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].Columns[PropertyReference]"
+                          cachedDataType="i4"
+                          cachedName="PropertyReference"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].ExternalColumns[PropertyReference]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[PropertyReference]" />
+                        <inputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].Columns[PropertyIncludeNo]"
+                          cachedDataType="i4"
+                          cachedName="PropertyIncludeNo"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].ExternalColumns[PropertyIncludeNo]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[PropertyIncludeNo]" />
+                        <inputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].Columns[CreationDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="CreationDate"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].ExternalColumns[CreationDate]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[CreationDate]" />
+                        <inputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].Columns[IncludeDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="IncludeDate"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].ExternalColumns[IncludeDate]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[IncludeDate]" />
+                        <inputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].Columns[UpdateType]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="UpdateType"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].ExternalColumns[UpdateType]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[UpdateType]" />
+                        <inputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].Columns[Processing]"
+                          cachedDataType="bool"
+                          cachedName="Processing"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].ExternalColumns[Processing]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[Processing]" />
+                        <inputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].Columns[XMLToPost]"
+                          cachedDataType="nText"
+                          cachedName="XMLToPost"
+                          externalMetadataColumnId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].ExternalColumns[XMLToPost]"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output].Columns[XMLToPost]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].ExternalColumns[WebPortalID]"
+                          dataType="i4"
+                          name="WebPortalID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].ExternalColumns[PropertyReference]"
+                          dataType="i4"
+                          name="PropertyReference" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].ExternalColumns[PropertyIncludeNo]"
+                          dataType="i4"
+                          name="PropertyIncludeNo" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].ExternalColumns[CreationDate]"
+                          dataType="dbTimeStamp"
+                          name="CreationDate" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].ExternalColumns[IncludeDate]"
+                          dataType="dbTimeStamp"
+                          name="IncludeDate" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].ExternalColumns[UpdateType]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="UpdateType" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].ExternalColumns[Processing]"
+                          dataType="bool"
+                          name="Processing" />
+                        <externalMetadataColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input].ExternalColumns[XMLToPost]"
+                          dataType="nText"
+                          name="XMLToPost" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Load Property Updates\Data Flow Task.Paths[OLE DB Source Output]"
+                  endId="Package\Load Property Updates\Data Flow Task\Property Staging.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Load Property Updates\Data Flow Task\PropertyExtract.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Load Property Updates\Data Flow Task.Paths[OLE DB Source Output1]"
+                  endId="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load Property Updates\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{f1de06e0-f0cc-45d9-b84d-aa6bd94894f6}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E0BBAD3C-D8D6-4049-A79A-28A6BD265C89}"
+              SQLTask:SqlStatementSource="   truncate table PropertyIncludeStaging&#xA;   truncate table PropertyStaging" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load Property Updates\TSQL - Delete Records"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{d1be290d-c3ff-45c7-820b-35e631b9e020}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TSQL - Delete Records"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E0BBAD3C-D8D6-4049-A79A-28A6BD265C89}"
+              SQLTask:SqlStatementSource="&#xA;&#xA;DELETE FROM PropertyInclude WHERE Processing = 1 AND WebPortalID = 6" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load Property Updates\Update Records"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8c4762a0-4647-46de-9fcb-ffdc85614212}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Records"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E0BBAD3C-D8D6-4049-A79A-28A6BD265C89}"
+              SQLTask:SqlStatementSource="&#xA;&#xA;/*&#xA;   Update Existing Records&#xA;&#xA;*/&#xA;UPDATE Property SET &#xA;&#x9;&#x9;UpdateDate = PropertyStaging.UpdateDate, &#xA;&#x9;&#x9;InsertionDate = PropertyStaging.InsertionDate, &#xA;&#x9;&#x9;DeletionDate = PropertyStaging.DeletionDate, &#xA;&#x9;&#x9;Success = PropertyStaging.Success, &#xA;&#x9;&#x9;LastPostXML = PropertyStaging.LastPostXML, &#xA;&#x9;&#x9;ResponseXML = PropertyStaging.ResponseXML, &#xA;&#x9;&#x9;ErrorMessage = PropertyStaging.ErrorMessage&#xA;&#x9;&#x9;--select *&#xA;&#x9;FROM Property&#xA;    INNER JOIN PropertyStaging ON Property.WebPortalID = PropertyStaging.WebPortalID AND Property.PropertyReference = PropertyStaging.PropertyReference&#xA;&#xA;&#xA;/*&#xA;  Insert New Records&#xA;&#xA;*/&#xA;&#xA;INSERT INTO Property(WebPortalID, PropertyReference, UpdateDate, InsertionDate, DeletionDate, Success, LastPostXML, ResponseXML, ErrorMessage)&#xA;&#x9;SELECT WebPortalID, PropertyReference, UpdateDate, InsertionDate, DeletionDate, Success, LastPostXML, ResponseXML, ErrorMessage&#xA;&#x9;FROM PropertyStaging &#xA;&#x9;WHERE NOT EXISTS (SELECT 1 FROM Property WHERE PropertyReference = PropertyStaging.PropertyReference AND WebPortalID = PropertyStaging.WebPortalID)&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load Property Updates.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{34aad70f-99c6-4ef1-b364-42b59283e04e}"
+          DTS:From="Package\Load Property Updates\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Load Property Updates\Data Flow Task" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load Property Updates.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{1c654c8b-ad92-473d-ac7c-2e5e9e947249}"
+          DTS:From="Package\Load Property Updates\Data Flow Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Load Property Updates\Update Records" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load Property Updates.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{282fb65b-76f7-46b9-bf49-a7cdf86dd0a1}"
+          DTS:From="Package\Load Property Updates\Update Records"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Load Property Updates\TSQL - Delete Records" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Load Property Updates\Data Flow Task"
+          TopLeft="22.5,107.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Load Property Updates\Execute SQL Task"
+          TopLeft="16.5,5.5" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Load Property Updates\TSQL - Delete Records"
+          TopLeft="5.50000000000003,311.5" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Load Property Updates\Update Records"
+          TopLeft="23.5,209.5" />
+        <EdgeLayout
+          Id="Package\Load Property Updates.PrecedenceConstraints[Constraint]"
+          TopLeft="99,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Property Updates.PrecedenceConstraints[Constraint 1]"
+          TopLeft="100,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Property Updates.PrecedenceConstraints[Constraint 2]"
+          TopLeft="100,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="198,409"
+          Size="198,452"
+          Id="Package\Load Property Updates"
+          TopLeft="5.50000000000003,5.5" />
+        <AnnotationLayout
+          Text="Load Rightmove Updates"
+          ParentId="Package"
+          Size="163,40"
+          Id="4485e493-d8f8-41a1-98c3-83b6f321e22d"
+          TopLeft="264,211.5">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="12"
+              Color="#FF000000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Property Updates\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Load Property Updates\Data Flow Task\PropertyIncludeStaging"
+          TopLeft="352,199" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Load Property Updates\Data Flow Task\PropertyExtract"
+          TopLeft="87,81" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Load Property Updates\Data Flow Task\PropertyIncludeExtract"
+          TopLeft="365,87" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Load Property Updates\Data Flow Task\Property Staging"
+          TopLeft="74,192" />
+        <EdgeLayout
+          Id="Package\Load Property Updates\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="459,129">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-11.5,70"
+              Start="0,0"
+              End="-11.5,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31"
+                    Point2="0,35"
+                    Point3="-4,35" />
+                  <mssgle:LineSegment
+                    End="-7.5,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7.5,35"
+                    Point2="-11.5,35"
+                    Point3="-11.5,39" />
+                  <mssgle:LineSegment
+                    End="-11.5,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Property Updates\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="164,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-10.5,69"
+              Start="0,0"
+              End="-10.5,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.5"
+                    Point2="0,34.5"
+                    Point3="-4,34.5" />
+                  <mssgle:LineSegment
+                    End="-6.5,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.5,34.5"
+                    Point2="-10.5,34.5"
+                    Point3="-10.5,38.5" />
+                  <mssgle:LineSegment
+                    End="-10.5,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DC_LNCMLDB"
+  DTS:DTSID="{C92AB030-25AA-4228-91F0-6D230398EF47}"
+  DTS:CreationName="ADO.NET:SQL">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=DC_LNCMLDB\CML;Initial Catalog=OpenHousePortals;Integrated Security=True;Connect Timeout=30;Application Name=SSIS-ExtractRMFeed-{C92AB030-25AA-4228-91F0-6D230398EF47}DC_LNCMLDB;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

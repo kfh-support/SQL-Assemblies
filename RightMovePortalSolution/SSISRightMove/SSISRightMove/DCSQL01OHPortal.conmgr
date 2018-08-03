@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DCSQL01OHPortal"
+  DTS:DTSID="{FCEECE95-0E11-412C-B8FF-717AB56DB97E}"
+  DTS:CreationName="ADO.NET:SQL">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=DCSQL01;Integrated Security=SSPI;Connect Timeout=30;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

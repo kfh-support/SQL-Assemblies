@@ -1,0 +1,28 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [SQLPortalFunctionsKFH] (Assembly)
+     Create
+       [SQLPortalFunctionsKFH] (Assembly)
+       [dbo].[fnWebSendXMLDataKFHTS3] (Function)
+
+** Supporting actions
+     Drop
+       [dbo].[fnWebSendXMLDataKFH] (Function)
+       [dbo].[fnWebSendXMLDataKFHRevised] (Function)
+       [dbo].[fnWebSendXMLDataKFHTS2] (Function)
+     Create
+       [dbo].[fnWebSendXMLDataKFH] (Function)
+       [dbo].[fnWebSendXMLDataKFHRevised] (Function)
+
+If this deployment is executed, [dbo].[fnWebSendXMLDataKFHTS2] will be dropped and not re-created.
+

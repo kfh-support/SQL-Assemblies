@@ -1,0 +1,17 @@
+C:\GitHub\SQL-Assemblies\SQLPortalFunctionsKFH\SQLPortalFunctions\bin\Release\SQLPortalFunctionsKFH.dacpac
+C:\GitHub\SQL-Assemblies\SQLPortalFunctionsKFH\SQLPortalFunctions\bin\Release\SQLPortalFunctionsKFH.dll
+C:\GitHub\SQL-Assemblies\SQLPortalFunctionsKFH\SQLPortalFunctions\obj\Release\SQLPortalFunctionsKFH.dll
+C:\GitHub\SQL-Assemblies\CML01\SQLPortalFunctionsKFH\SQLPortalFunctions\bin\Release\SQLPortalFunctionsKFH.dacpac
+C:\GitHub\SQL-Assemblies\CML01\SQLPortalFunctionsKFH\SQLPortalFunctions\bin\Release\SQLPortalFunctionsKFH.dll
+C:\GitHub\SQL-Assemblies\CML01\SQLPortalFunctionsKFH\SQLPortalFunctions\obj\Release\SQLPortalFunctionsKFH.dll
+C:\GitHub\SQL-Assemblies\CML01\SQLPortalFunctionsKFH\SQLPortalFunctions\obj\Release\Model.xml
+C:\GitHub\SQL-Assemblies\CML01\SQLPortalFunctionsKFH\SQLPortalFunctions\obj\Release\refactor.xml
+C:\GitHub\SQL-Assemblies\CML01\SQLPortalFunctionsKFH\SQLPortalFunctions\obj\Release\postdeploy.sql
+C:\GitHub\SQL-Assemblies\CML01\SQLPortalFunctionsKFH\SQLPortalFunctions\obj\Release\predeploy.sql
+C:\GitHub\SQL-Assemblies\RightMovePortalSolution\SQLPortalFunctionsKFH\SQLPortalFunctions\bin\Release\SQLPortalFunctionsKFH.dacpac
+C:\GitHub\SQL-Assemblies\RightMovePortalSolution\SQLPortalFunctionsKFH\SQLPortalFunctions\bin\Release\SQLPortalFunctionsKFH.dll
+C:\GitHub\SQL-Assemblies\RightMovePortalSolution\SQLPortalFunctionsKFH\SQLPortalFunctions\obj\Release\SQLPortalFunctionsKFH.dll
+C:\GitHub\SQL-Assemblies\RightMovePortalSolution\SQLPortalFunctionsKFH\SQLPortalFunctions\obj\Release\Model.xml
+C:\GitHub\SQL-Assemblies\RightMovePortalSolution\SQLPortalFunctionsKFH\SQLPortalFunctions\obj\Release\refactor.xml
+C:\GitHub\SQL-Assemblies\RightMovePortalSolution\SQLPortalFunctionsKFH\SQLPortalFunctions\obj\Release\postdeploy.sql
+C:\GitHub\SQL-Assemblies\RightMovePortalSolution\SQLPortalFunctionsKFH\SQLPortalFunctions\obj\Release\predeploy.sql
