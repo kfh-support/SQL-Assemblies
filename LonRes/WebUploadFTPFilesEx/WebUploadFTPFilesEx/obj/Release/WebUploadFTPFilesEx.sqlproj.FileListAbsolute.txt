@@ -1,0 +1,7 @@
+C:\GitHub\Feeds\LonRes\ShaukatOldCode\Extended Stored Procs\WebUploadFTPFilesEx\WebUploadFTPFilesEx\bin\Release\WebUploadFTPFilesEx.dacpac
+C:\GitHub\Feeds\LonRes\ShaukatOldCode\Extended Stored Procs\WebUploadFTPFilesEx\WebUploadFTPFilesEx\bin\Release\WebUploadFTPFilesEx.dll
+C:\GitHub\Feeds\LonRes\ShaukatOldCode\Extended Stored Procs\WebUploadFTPFilesEx\WebUploadFTPFilesEx\obj\Release\Model.xml
+C:\GitHub\Feeds\LonRes\ShaukatOldCode\Extended Stored Procs\WebUploadFTPFilesEx\WebUploadFTPFilesEx\obj\Release\refactor.xml
+C:\GitHub\Feeds\LonRes\ShaukatOldCode\Extended Stored Procs\WebUploadFTPFilesEx\WebUploadFTPFilesEx\obj\Release\postdeploy.sql
+C:\GitHub\Feeds\LonRes\ShaukatOldCode\Extended Stored Procs\WebUploadFTPFilesEx\WebUploadFTPFilesEx\obj\Release\predeploy.sql
+C:\GitHub\Feeds\LonRes\ShaukatOldCode\Extended Stored Procs\WebUploadFTPFilesEx\WebUploadFTPFilesEx\obj\Release\WebUploadFTPFilesEx.dll
