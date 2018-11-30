@@ -1,0 +1,8 @@
+C:\Development\SQL CLR\WebUploadFTPFilesEx\WebUploadFTPFilesEx\bin\Debug\WebUploadFTPFilesEx.dll
+C:\Development\SQL CLR\WebUploadFTPFilesEx\WebUploadFTPFilesEx\bin\Debug\WebUploadFTPFilesEx.pdb
+C:\Development\SQL CLR\WebUploadFTPFilesEx\WebUploadFTPFilesEx\obj\Debug\ResolveAssemblyReference.cache
+C:\Development\SQL CLR\WebUploadFTPFilesEx\WebUploadFTPFilesEx\obj\Debug\WebUploadFTPFilesEx.dll
+C:\Development\SQL CLR\WebUploadFTPFilesEx\WebUploadFTPFilesEx\obj\Debug\WebUploadFTPFilesEx.pdb
+C:\Development\SQL CLR\WebUploadFTPFilesEx\WebUploadFTPFilesEx\bin\Release\WebUploadFTPFilesEx.dll
+C:\Development\SQL CLR\WebUploadFTPFilesEx\WebUploadFTPFilesEx\obj\Release\ResolveAssemblyReference.cache
+C:\Development\SQL CLR\WebUploadFTPFilesEx\WebUploadFTPFilesEx\obj\Release\WebUploadFTPFilesEx.dll

@@ -1,0 +1,8 @@
+bin\Debug\WebUploadFTPFiles.dll
+bin\Debug\WebUploadFTPFiles.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\WebUploadFTPFiles.dll
+obj\Debug\WebUploadFTPFiles.pdb
+bin\Release\WebUploadFTPFiles.dll
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\WebUploadFTPFiles.dll
