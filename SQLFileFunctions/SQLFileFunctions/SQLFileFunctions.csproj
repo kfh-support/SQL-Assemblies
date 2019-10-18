@@ -17,6 +17,9 @@
     <PermissionLevel>2</PermissionLevel>
     <ConnectionString>
     </ConnectionString>
+    <FileUpgradeFlags>40</FileUpgradeFlags>
+    <UpgradeBackupLocation>C:\GitHub\SQL-Assemblies\SQLFileFunctions\Backup\SQLFileFunctions\</UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
