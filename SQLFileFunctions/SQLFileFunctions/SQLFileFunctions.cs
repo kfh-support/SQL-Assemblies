@@ -76,7 +76,7 @@ public partial class FileFunctions
             Size numeric,
             FileName nvarchar(max),
             Binary varbinary(max)")]
-    public static IEnumerable fnManageFileVH(
+    public static IEnumerable fnManageFile(
         SqlString Operation, // new param
         SqlBinary InFileBinary,
         SqlString InSourceFile,
